@@ -1,5 +1,2 @@
-require "ny_state_fair_concerts_cli_gem/version"
-
-module NyStateFairConcertsCliGem
-  # Your code goes here...
-end
+require_relative './ny_state_fair_concerts_cli_gem/version'
+require_relative './ny_state_fair_concerts_cli_gem/cli'

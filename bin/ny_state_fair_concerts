@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "hello world"
+require './lib/ny_state_fair_concerts_cli_gem'
+
+NyStateFairConcerts::CLI.new.call
