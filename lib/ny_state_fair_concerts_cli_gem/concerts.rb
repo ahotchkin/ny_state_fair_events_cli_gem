@@ -2,11 +2,11 @@ class NYStateFairConcerts::Concerts
   attr_accessor :band, :date, :time, :url
 
   def self.all
-    puts <<-DOC.gsub /^\s*/, ''
-      1. Chevy Court TBA - Aug. 22 @ 2pm
-      2. Blondie
-      3. Dave Mason and Steve Cropper
-    DOC
+    # puts <<-DOC.gsub /^\s*/, ''
+    #   1. Chevy Court TBA - Aug. 22 @ 2pm
+    #   2. Blondie
+    #   3. Dave Mason and Steve Cropper
+    # DOC
 
     concert_1 = self.new
     concert_1.band = "Chevy Court TBA - Aug. 22 @ 2pm"

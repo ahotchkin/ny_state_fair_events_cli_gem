@@ -11,6 +11,9 @@ class NYStateFairConcerts::CLI
   def list_concerts
     puts "2018 Chevy Court Concerts:"
     @concerts = NYStateFairConcerts::Concerts.all
+    @concerts.each.with_index(1) do |concert, i|
+      puts "#{i}. #{concert.band}"
+    end
   end
 
   def menu
@@ -23,12 +26,9 @@ class NYStateFairConcerts::CLI
         - Exit
       DOC
       input = gets.strip.downcase
-      if input == "1"
-        puts "date, time, and url for concert 1"
-      elsif input == "2"
-        puts "date, time, and url for concert 2"
-      elsif input == "3"
-        puts "date, time, and url for concert 3"
+
+      if input.to_i > 0
+        puts @concerts[input.to_i-1]
       elsif input == 'concerts'
         list_concerts
       elsif input != "exit"
