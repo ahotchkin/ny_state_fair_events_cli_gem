@@ -1,6 +1,6 @@
 # CLI Controller - responsible for user interaction
 
-class NyStateFairConcerts::CLI
+class NYStateFairConcerts::CLI
 
   def call
     list_concerts
@@ -10,17 +10,13 @@ class NyStateFairConcerts::CLI
 
   def list_concerts
     puts "2018 Chevy Court Concerts:"
-    puts <<-DOC.gsub /^\s*/, ''
-      1. Chevy Court TBA - Aug. 22 @ 2pm
-      2. Blondie
-      3. Dave Mason and Steve Cropper
-    DOC
+    @concerts = NYStateFairConcerts::Concerts.all
   end
 
   def menu
-    input = ''
-    while input != 'exit'
-      puts <<-DOC.gsub /^\s*/, ''
+    input = ""
+    while input != "exit"
+      puts <<-DOC.gsub /^\s*/, ""
         Enter one of the following prompts:
         - Concert number to get more information on a specific concert
         - Concerts to list all Concerts
@@ -35,7 +31,7 @@ class NyStateFairConcerts::CLI
         puts "date, time, and url for concert 3"
       elsif input == 'concerts'
         list_concerts
-      else
+      elsif input != "exit"
         puts "I'm sorry, I didn't catch that."
       end
     end
