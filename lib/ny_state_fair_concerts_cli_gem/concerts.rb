@@ -26,6 +26,7 @@ class NYStateFairConcerts::Concerts
     concert_3.time = "2:00pm"
     concert_3.url = "https://nysfair.ny.gov/event/dave-mason-steve-cropper/"
 
+    [concert_1, concert_2, concert_3]
     # method should return an array of all concerts: [concert_1, concert_2, concert_3]
 
   end

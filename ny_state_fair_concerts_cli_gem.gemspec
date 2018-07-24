@@ -5,13 +5,13 @@ require "ny_state_fair_concerts_cli_gem/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "ny_state_fair_concerts_cli_gem"
-  spec.version       = NyStateFairConcertsCliGem::VERSION
+  spec.version       = NYStateFairConcerts::VERSION
   spec.authors       = ["'Allyson Hotchkin'"]
   spec.email         = ["'ahotchk1@yahoo.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "NY State Fair Concerts CLI"
+  spec.description   = "NY State Fair Concerts CLI"
+  spec.homepage      = "https://github.com/ahotchkin/ny_state_fair_concerts_cli_gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
