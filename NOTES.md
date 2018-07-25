@@ -21,7 +21,8 @@ A user will see the greeting and be asked to enter a prompt. If they choose 'con
 
 
 Scraping Practice
-Concert: parsed_content.css(‘tr.event-list-feed-item’).css(‘.eventcol’)[i].text
+Concert: parsed_content.css('tr.event-list-feed-item td.eventcol')[i].text
+	- can also use .search instead of .css
 Date: parsed_content.css('tr.event-list-feed-item').css('.datecol’)[i].text.gsub(/[\t\n]/, '')
 Time: parsed_content.css(‘tr.event-list-feed-item’).css(‘.timecol’)[i].text
 Link: links[i]
