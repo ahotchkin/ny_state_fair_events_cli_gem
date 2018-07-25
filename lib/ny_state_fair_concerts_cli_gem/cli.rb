@@ -28,7 +28,12 @@ class NYStateFairConcerts::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @concerts[input.to_i-1]
+        concert = @concerts[input.to_i-1]
+        puts <<-DOC.gsub /^\s*/, ""
+          #{concert.band}
+          #{concert.date} at #{concert.time}
+          #{concert.url}
+        DOC
       elsif input == 'concerts'
         list_concerts
       elsif input != "exit"

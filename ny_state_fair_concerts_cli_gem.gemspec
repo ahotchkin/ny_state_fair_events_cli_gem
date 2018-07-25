@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Allyson Hotchkin'"]
   spec.email         = ["'ahotchk1@yahoo.com'"]
 
-  spec.summary       = "NY State Fair Concerts CLI"
-  spec.description   = "NY State Fair Concerts CLI"
+  spec.summary       = "NY State Fair Chevy Court Concerts"
+  spec.description   = "Provides a listing of all Chevy Court concerts at the 2018 NY State Fair, and details for each concert"
   spec.homepage      = "https://github.com/ahotchkin/ny_state_fair_concerts_cli_gem"
   spec.license       = "MIT"
 
@@ -34,4 +34,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "nokogiri"
+  spec.add_development_dependency "pry"
 end
