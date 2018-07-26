@@ -1,6 +1,9 @@
 class NYStateFairConcerts::Concerts
   attr_accessor :band, :date, :time, :url
 
+  def initialize
+  end
+
   def self.all
     # Scrape https://nysfair.ny.gov/venue/chevy-court/ for concert data
 
