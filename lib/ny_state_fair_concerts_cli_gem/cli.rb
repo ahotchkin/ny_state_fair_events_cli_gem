@@ -22,8 +22,8 @@ class NYStateFairConcerts::CLI
       puts <<-DOC.gsub /^\s*/, ""
         Enter one of the following prompts:
         - Concert number to get more information on a specific concert
-        - Concerts to list all Concerts
-        - Exit
+        - 'Concerts' to list all Concerts
+        - 'Exit' to exit
       DOC
       input = gets.strip.downcase
 
