@@ -10,5 +10,9 @@ require "ny_state_fair_concerts_cli_gem"
 # require "pry"
 # Pry.start
 
+def reload!
+  load_all './lib'
+end
+
 require "irb"
 IRB.start(__FILE__)

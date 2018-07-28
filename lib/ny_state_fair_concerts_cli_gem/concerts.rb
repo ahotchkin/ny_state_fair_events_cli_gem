@@ -13,7 +13,7 @@ class NYStateFairConcerts::Concerts
       concert.css('td.eventcol').text,
       concert.css('td.datecol').text.gsub(/[\t\n]/, ''),
       concert.css('td.timecol').text,
-      concert.css('a').map { |link| link.attribute('href').value }
+      concert.css('a').map { |link| link.attribute('href').value } #=> need to return string, not array
     )
   end
 
