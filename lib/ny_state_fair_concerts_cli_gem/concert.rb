@@ -1,4 +1,4 @@
-class NYStateFairConcerts::Concerts
+class NYStateFairConcerts::Concert
   attr_accessor :band, :date, :time, :url
 
   def initialize(band=nil, date=nil, time=nil, url=nil)
@@ -19,7 +19,7 @@ class NYStateFairConcerts::Concerts
 
 
   def self.all
-    # @@all ||= scrape_concerts
+    @@all ||= make_concerts
 
     # Scrape https://nysfair.ny.gov/venue/chevy-court/ for concert data
 
