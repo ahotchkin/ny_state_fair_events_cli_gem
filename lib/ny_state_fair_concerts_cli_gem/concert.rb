@@ -13,13 +13,13 @@ class NYStateFairConcerts::Concerts
       concert.css('td.eventcol').text,
       concert.css('td.datecol').text.gsub(/[\t\n]/, ''),
       concert.css('td.timecol').text,
-      concert.css('a').map { |link| link.attribute('href').value } #=> need to return string, not array
+      concert.css('a').attribute('href').value
     )
   end
 
 
   def self.all
-    @@all ||= scrape_concerts
+    # @@all ||= scrape_concerts
 
     # Scrape https://nysfair.ny.gov/venue/chevy-court/ for concert data
 
@@ -46,23 +46,19 @@ class NYStateFairConcerts::Concerts
 
   end
 
-  # @@concerts = []
-  private
-    def self.scrape_concerts
-      @@concerts = []
-      concerts = Nokogiri::HTML(open('https://nysfair.ny.gov/venue/chevy-court/'))
-      # concerts = document.css('tr.event-list-feed-item')
-      concerts.css('tr.event-list-feed-item').each.with_index(1) do |concert, i|
-        # binding.pry
-        concert = self.new
-        concert.band = concerts.css('td.eventcol')[i].text
-        concert.date = concerts.css('td.datecol')[i].text.gsub(/[\t\n]/, '')
-        concert.time = concerts.css('td.timecol')[i].text
-        # concert.links = concerts.css('a').map { |link| link.attribute('href').value }
-        @@concerts << concert
-      end
-      @@concerts
-    end
+  # private
+  #   def self.scrape_concerts
+  #     concerts = Nokogiri::HTML(open('https://nysfair.ny.gov/venue/chevy-court/'))
+  #     # concerts = document.css('tr.event-list-feed-item')
+  #     concerts.css('tr.event-list-feed-item').each.with_index(1) do |concert, i|
+  #       # binding.pry
+  #       concert = self.new
+  #       concert.band = concerts.css('td.eventcol')[i].text
+  #       concert.date = concerts.css('td.datecol')[i].text.gsub(/[\t\n]/, '')
+  #       concert.time = concerts.css('td.timecol')[i].text
+  #       # concert.links = concerts.css('a').map { |link| link.attribute('href').value }
+  #     end
+  #   end
 
   #   # Concerts = document.css('tr.event-list-feed-item td.eventcol')
   #   # Band: concerts.css('td.eventcol')[i].text
@@ -80,9 +76,7 @@ class NYStateFairConcerts::Concerts
   #     concert.date = concert.css('td.datecol').text.gsub(/[\t\n]/, '')
   #     concert.time = concert.css('td.timecol').text
   #     concert.links = concert.css('a').map { |link| link.attribute('href').value }
-  #     @@concerts << concert
   #   end
-  #   @@concerts
   # end
 
 end

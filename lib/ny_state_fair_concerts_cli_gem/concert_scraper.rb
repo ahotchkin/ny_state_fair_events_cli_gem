@@ -10,11 +10,11 @@ class NYStateFairConcerts::ConcertScraper
 
   def make_concerts
     self.scrape_concerts_index.each do |concert|
-      NYStateFairConcerts::Concerts.new_from_index_page(concert)
+      NYStateFairConcerts::Concert.new_from_index_page(concert)
     end
   end
 
-  # @@concerts = []
+
   # def scrape_concerts
   #   concerts = Nokogiri::HTML(open('https://nysfair.ny.gov/venue/chevy-court/'))
   #   # concerts = document.css('tr.event-list-feed-item')
@@ -24,10 +24,9 @@ class NYStateFairConcerts::ConcertScraper
   #     concert.band = concerts.css('td.eventcol')[i].text
   #     concert.date = concerts.css('td.datecol')[i].text.gsub(/[\t\n]/, '')
   #     concert.time = concerts.css('td.timecol')[i].text
-  #     # concert.links = concerts.css('a').map { |link| link.attribute('href').value }
-  #     @@concerts << concert
+  #     concert.links = concerts.css('a').attribute('href').value
   #   end
-  #   @@concerts
+
 
     # Concerts = document.css('tr.event-list-feed-item td.eventcol')
     # Band: concerts.css('td.eventcol')[i].text
@@ -45,8 +44,6 @@ class NYStateFairConcerts::ConcertScraper
   #     concert.date = concert.css('td.datecol').text.gsub(/[\t\n]/, '')
   #     concert.time = concert.css('td.timecol').text
   #     concert.links = concert.css('a').map { |link| link.attribute('href').value }
-  #     @@concerts << concert
   #   end
-  #   @@concerts
   # end
 end
