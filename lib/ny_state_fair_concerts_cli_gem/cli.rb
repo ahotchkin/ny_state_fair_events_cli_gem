@@ -10,7 +10,7 @@ class NYStateFairConcerts::CLI
 
   def list_concerts
     puts "2018 Chevy Court Concerts:"
-    @concerts = NYStateFairConcerts::Concerts.all
+    @concerts = NYStateFairConcerts::Concert.all
     @concerts.each.with_index(1) do |concert, i|
       puts "#{i}. #{concert.band}"
     end
