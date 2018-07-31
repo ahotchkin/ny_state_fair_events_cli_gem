@@ -3,6 +3,7 @@
 class NYStateFairConcerts::CLI
 
   def call
+    NYStateFairConcerts::ConcertScraper.new.make_concerts
     list_concerts
     menu
     goodbye
@@ -43,7 +44,9 @@ class NYStateFairConcerts::CLI
   end
 
   def goodbye
+    puts ""
     puts "Hope to see you at Chevy Court this year!"
+    puts ""
   end
 
 end

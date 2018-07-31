@@ -14,14 +14,4 @@ class NYStateFairConcerts::ConcertScraper
     end
   end
 
-
-
-
-    # Concerts = document.css('tr.event-list-feed-item td.eventcol')
-    # Band: concerts.css('td.eventcol')[i].text
-    # Date: concerts.css('td.datecol')[i].text.gsub(/[\t\n]/, '')
-    # Time: concerts.css('td.timecol')[i].text
-    # Link: concerts.css('a').attribute('href').value
-
-
 end
