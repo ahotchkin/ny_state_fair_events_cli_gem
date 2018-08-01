@@ -1,5 +1,5 @@
 class NYStateFairConcerts::Concert
-  attr_accessor :band, :date, :time, :url
+  attr_accessor :band, :date, :time, :url, :summary, :directions
 
   @@all = []
 
@@ -13,11 +13,20 @@ class NYStateFairConcerts::Concert
 
   def self.new_from_index_page(concert)
     self.new(
-      concert.css('td.eventcol').text,
-      concert.css('td.datecol').text.gsub(/[\t\n]/, ''),
-      concert.css('td.timecol').text,
-      concert.css('a').attribute('href').value
+      concert.css("td.eventcol").text,
+      concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
+      concert.css("td.timecol").text,
+      concert.css("a").attribute("href").value
     )
+  end
+
+  # need to work on #summary and #directions
+  def summary(concert)
+    concert = Concert.new
+    self.summary = NYStateFairConcerts::ConcertScraper.self.scrape_summary
+  end
+
+  def directions(concert)
   end
 
   def self.all
