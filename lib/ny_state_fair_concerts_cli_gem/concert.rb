@@ -20,17 +20,21 @@ class NYStateFairConcerts::Concert
     )
   end
 
-  # need to work on #summary and #directions
-  def summary(concert)
-    concert = Concert.new
-    self.summary = NYStateFairConcerts::ConcertScraper.self.scrape_summary
-  end
-
-  def directions(concert)
-  end
-
   def self.all
     @@all
+  end
+
+  def details
+    @details = Nokogiri::HTML(open(self.url))
+    # @details ||= Nokogiri::HTML(open(concert.url))
+  end
+
+  def summary
+    details.css('div.entry-content p').first.text
+    # doesn't work for Smokey Robinson - only one without p tag
+  end
+
+  def directions
   end
 
 end

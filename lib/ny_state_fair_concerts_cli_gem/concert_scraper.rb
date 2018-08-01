@@ -14,12 +14,4 @@ class NYStateFairConcerts::ConcertScraper
     end
   end
 
-  def get_summary(concert)
-    Nokogiri::HTML(open(concert.url))
-  end
-
-  def scrape_summary(concert)
-    self.get_summary(concert).css('div.entry-content p').first.text
-  end
-
 end
