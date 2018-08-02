@@ -25,16 +25,17 @@ class NYStateFairConcerts::Concert
   end
 
   def details
-    @details = Nokogiri::HTML(open(self.url))
-    # @details ||= Nokogiri::HTML(open(concert.url))
+    @details ||= Nokogiri::HTML(open(self.url))
   end
 
   def summary
-    details.css('div.entry-content p').first.text
+    @summary ||= details.css("div.entry-content p").first.text
     # doesn't work for Smokey Robinson - only one without p tag
   end
 
   def directions
+    @directions ||= details.css("div.entry-content a").attribute("href").value
+    # doesn't work for all, but is there a way to hard code the link since all concerts are at the same venue?
   end
 
 end
