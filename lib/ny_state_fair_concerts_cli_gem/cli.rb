@@ -54,16 +54,20 @@ class NYStateFairConcerts::CLI
         What would you like to do?
         - Enter 'concerts' to see a list of all concerts
         - Enter 'help' for instructions
+        - Enter 'directions' for directions to Chevy Court
         - Enter 'exit' to exit
       DOC
       input = gets.strip.downcase
 
-      if input == 'concerts'
+      if input == "concerts"
         list_concerts
-      elsif input == 'help'
+      elsif input == "help"
         puts ""
         puts "This app is designed to provide information on all concerts taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for concert details."
         puts ""
+      elsif input == "directions"
+        puts "Click on the below link for directions to Chevy Court:"
+        puts "https://www.google.com/maps/place/43.0720149,-76.2153672"
       elsif input != "exit"
         puts ""
         puts "I'm sorry, I didn't catch that."
