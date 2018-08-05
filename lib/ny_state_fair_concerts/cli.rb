@@ -64,9 +64,10 @@ class NYStateFairConcerts::CLI
         puts <<-DOC.gsub /^\s*/, ""
           -------------------#{concert.band.upcase}-------------------
           Date & Time: #{concert.date} at #{concert.time}
-          Link: #{concert.url}
           ------------------------------------------------------------
           #{concert.summary}
+          ------------------------------------------------------------
+          For more information visit: #{concert.url}
           ------------------------------------------------------------
           DOC
       elsif input == 'menu'
