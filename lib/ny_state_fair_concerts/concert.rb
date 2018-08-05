@@ -29,8 +29,12 @@ class NYStateFairConcerts::Concert
   end
 
   def summary
-    @summary ||= details.css("div.entry-content p").first.text
-    # doesn't work for Smokey Robinson - only one without p tag
+    if self.url == "https://nysfair.ny.gov/event/smokey-robinson/"
+      @summary ||= details.css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
+      # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
+    else
+      @summary ||= details.css("div.entry-content p").first.text
+    end
   end
 
 end
