@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ny_state_fair_concerts_cli_gem (0.1.0)
+    ny_state_fair_concerts (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -36,7 +36,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   nokogiri
-  ny_state_fair_concerts_cli_gem!
+  ny_state_fair_concerts!
   pry
   rake (~> 10.0)
   rspec

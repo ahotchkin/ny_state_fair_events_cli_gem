@@ -43,7 +43,6 @@ class NYStateFairConcerts::CLI
       elsif input == "exit"
         goodbye
       end
-      end
     end
   end
 

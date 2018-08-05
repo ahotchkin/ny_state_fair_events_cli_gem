@@ -1,15 +1,13 @@
-# NyStateFairConcertsCliGem
+# NyStateFairConcerts
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ny_state_fair_concerts_cli_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby gem provides a CLI to view a listing of all Chevy Court concerts at the 2018 New York State Fair. While running the gem, users will be able to view details for all concerts to help them decide which band they would like to rock out to this year (Hanson, anyone?).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ny_state_fair_concerts_cli_gem'
+gem 'ny_state_fair_concerts'
 ```
 
 And then execute:
@@ -18,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ny_state_fair_concerts_cli_gem
+    $ gem install ny_state_fair_concerts
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: `ny_state_fair_concerts` after installing the gem, and follow the on-screen prompts.
 
 ## Development
 
@@ -40,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the NyStateFairConcertsCliGem project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'ahotchkin'/ny_state_fair_concerts_cli_gem/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the NyStateFairConcerts project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'ahotchkin'/ny_state_fair_concerts_cli_gem/blob/master/CODE_OF_CONDUCT.md).
