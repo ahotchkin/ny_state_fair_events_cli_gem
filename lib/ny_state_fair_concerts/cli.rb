@@ -61,15 +61,20 @@ class NYStateFairConcerts::CLI
 
       if input.to_i > 0 && input.to_i <= 26
         concert = @concerts[input.to_i-1]
-        puts <<-DOC.gsub /^\s*/, ""
-          -------------------#{concert.band.upcase}-------------------
-          Date & Time: #{concert.date} at #{concert.time}
-          ------------------------------------------------------------
-          #{concert.summary}
-          ------------------------------------------------------------
-          For more information visit: #{concert.url}
-          ------------------------------------------------------------
-          DOC
+        puts "-" * (concert.date.length / 2 - concert.band.length / 2) + "-------#{concert.band.upcase}-------" + "-" * (concert.date.length / 2 - concert.band.length / 2)
+        puts "Performing on #{concert.date} at #{concert.time}"
+        puts "-" * concert.date.length + "-" * concert.band.length + "--------------"
+        puts "#{concert.summary}"
+        puts ""
+        puts "For more information visit: #{concert.url}"
+        puts "-" * concert.date.length + "-" * concert.band.length + "--------------"
+        # puts "-----------------------#{concert.band.upcase}-----------------------"
+        # puts "Performing on #{concert.date} at #{concert.time}"
+        # puts "-" * concert.band.length + "----------------------------------------------"
+        # puts "#{concert.summary}"
+        # puts ""
+        # puts "For more information visit: #{concert.url}"
+        # puts "-" * concert.band.length + "----------------------------------------------"
       elsif input == 'menu'
         menu
       elsif input != "exit"
