@@ -61,13 +61,7 @@ class NYStateFairConcerts::CLI
 
       if input.to_i > 0 && input.to_i <= 26
         concert = @concerts[input.to_i-1]
-        puts "-----------------------#{concert.band.upcase}-----------------------"
-        puts "Performing on #{concert.date} at #{concert.time}"
-        puts "-" * concert.band.length + "----------------------------------------------"
-        puts "#{concert.summary}"
-        puts ""
-        puts "For more information visit: #{concert.url}"
-        puts "-" * concert.band.length + "----------------------------------------------"
+        concert.concert_details
       elsif input == 'menu'
         menu
       elsif input != "exit"
@@ -82,7 +76,7 @@ class NYStateFairConcerts::CLI
   def directions
     puts ""
     puts "Click on the below link for directions to Chevy Court:"
-    puts "https://www.google.com/maps/place/43.0720149,-76.2153672"
+    puts "https://www.google.com/maps/place/43.0720149%2C-76.2153672"
     puts ""
   end
 

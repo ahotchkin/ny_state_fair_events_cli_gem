@@ -14,5 +14,8 @@ def reload!
   load_all './lib'
 end
 
-require "irb"
-IRB.start(__FILE__)
+# require "irb"
+# IRB.start(__FILE__)
+
+cli = NYStateFairConcerts::CLI.new
+cli.call
