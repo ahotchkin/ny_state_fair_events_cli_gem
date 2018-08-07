@@ -29,6 +29,14 @@ class NYStateFairConcerts::Concert
     puts ""
     puts "For more information visit: #{self.url}"
     puts "-" * self.band.length + "----------------------------------------------"
+
+    # puts "-" * (concert.date.length / 2 - concert.band.length / 2) + "-------#{concert.band.upcase}-------" + "-" * (concert.date.length / 2 - concert.band.length / 2)
+    # puts "Performing on #{concert.date} at #{concert.time}"
+    # puts "-" * concert.date.length + "-" * concert.band.length + "--------------"
+    # puts "#{concert.summary}"
+    # puts ""
+    # puts "For more information visit: #{concert.url}"
+    # puts "-" * concert.date.length + "-" * concert.band.length + "--------------"
   end
 
 end

@@ -3,9 +3,13 @@
 class NYStateFairConcerts::CLI
 
   def call
-    NYStateFairConcerts::ConcertScraper.new.make_concerts
+    scraper = NYStateFairConcerts::ConcertScraper.new
+    scraper.make_concerts
     puts ""
     puts "Welcome to the 2018 New York State Fair Concerts app!"
+    puts ""
+    puts "#{scraper.scrape_venue_summary}"
+    puts ""
     menu
   end
 
@@ -59,7 +63,6 @@ class NYStateFairConcerts::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 26
-        # is this the best way, or should some of this logic be in the concert class?
         concert = NYStateFairConcerts::Concert.all[input.to_i-1]
         concert.concert_details
       elsif input == 'menu'

@@ -4,6 +4,10 @@ class NYStateFairConcerts::ConcertScraper
     Nokogiri::HTML(open("https://nysfair.ny.gov/venue/chevy-court/"))
   end
 
+  def scrape_venue_summary
+    self.get_page.css("div.clearfix p").first.text
+  end
+
   def scrape_index_page
     self.get_page.css("tr.event-list-feed-item")
   end
