@@ -29,7 +29,9 @@ class NYStateFairConcerts::CLI
         puts ""
         puts "This app is designed to provide information on all concerts taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for concert details."
       elsif input == "directions"
-        directions
+        puts ""
+        puts "Click on the below link for directions to Chevy Court:"
+        puts "https://www.google.com/maps/place/43.0720149%2C-76.2153672"
       elsif input != "exit"
         puts ""
         puts "I'm sorry, I didn't catch that."
@@ -43,10 +45,7 @@ class NYStateFairConcerts::CLI
     puts ""
     puts "2018 Chevy Court Concerts:"
     puts ""
-    @concerts = NYStateFairConcerts::Concert.all
-    @concerts.each.with_index(1) do |concert, i|
-      puts "#{i}. #{concert.band}"
-    end
+    NYStateFairConcerts::Concert.list_all
 
     input = ""
     while input != "exit"
@@ -60,7 +59,8 @@ class NYStateFairConcerts::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 26
-        concert = @concerts[input.to_i-1]
+        # is this the best way, or should some of this logic be in the concert class?
+        concert = NYStateFairConcerts::Concert.all[input.to_i-1]
         concert.concert_details
       elsif input == 'menu'
         menu
@@ -71,13 +71,6 @@ class NYStateFairConcerts::CLI
         goodbye
       end
     end
-  end
-
-  def directions
-    puts ""
-    puts "Click on the below link for directions to Chevy Court:"
-    puts "https://www.google.com/maps/place/43.0720149%2C-76.2153672"
-    puts ""
   end
 
   def goodbye

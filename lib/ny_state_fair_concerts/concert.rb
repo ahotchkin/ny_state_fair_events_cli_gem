@@ -15,6 +15,12 @@ class NYStateFairConcerts::Concert
     @@all
   end
 
+  def self.list_all
+    @@all.each.with_index(1) do |concert, i|
+      puts "#{i}. #{concert.band}"
+    end
+  end
+
   def concert_details
     puts "-----------------------#{self.band.upcase}-----------------------"
     puts "Performing on #{self.date} at #{self.time}"
