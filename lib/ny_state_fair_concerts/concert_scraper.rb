@@ -23,30 +23,19 @@ class NYStateFairConcerts::ConcertScraper
     end
   end
 
+# Do these need to be class methods or should they be instance methods?
+
   def self.details(concert)
-    @details ||= Nokogiri::HTML(open(concert.url))
+    Nokogiri::HTML(open(concert.url))
   end
 
   def self.summary(concert)
     # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
     if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
-      @summary ||= self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
+      self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
     else
-      @summary ||= self.details(concert).css("div.entry-content p").first.text
+      self.details(concert).css("div.entry-content p").first.text
     end
   end
-
-  # def details(concert)
-  #   NYStateFairConcerts::Concert.concert.details ||= Nokogiri::HTML(open(concert.url))
-  # end
-  #
-  # def summary(concert)
-  #   # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
-  #   if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
-  #     NYStateFairConcerts::Concert.concert.summary ||= details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
-  #   else
-  #     NYStateFairConcerts::Concert.concert.summary ||= details(concert).css("div.entry-content p").first.text
-  #   end
-  # end
 
 end

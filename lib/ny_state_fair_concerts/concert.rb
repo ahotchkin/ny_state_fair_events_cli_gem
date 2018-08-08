@@ -21,11 +21,15 @@ class NYStateFairConcerts::Concert
     end
   end
 
+  def summary
+    @summary ||= NYStateFairConcerts::ConcertScraper.summary(self)
+  end
+
   def concert_details
     puts "-----------------------#{self.band.upcase}-----------------------"
     puts "Performing on #{self.date} at #{self.time}"
     puts "-" * self.band.length + "----------------------------------------------"
-    puts "#{NYStateFairConcerts::ConcertScraper.summary(self)}"
+    puts "#{self.summary}"
     puts ""
     puts "For more information visit: #{self.url}"
     puts "-" * self.band.length + "----------------------------------------------"

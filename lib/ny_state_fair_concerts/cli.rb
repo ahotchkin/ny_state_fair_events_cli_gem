@@ -6,7 +6,7 @@ class NYStateFairConcerts::CLI
     scraper = NYStateFairConcerts::ConcertScraper.new
     scraper.make_concerts
     puts ""
-    puts "Welcome to the 2018 New York State Fair Concerts app!"
+    puts "Welcome to the 2018 New York State Fair Chevy Court Concerts app!"
     puts ""
     puts "#{scraper.scrape_venue_summary}"
     puts ""
