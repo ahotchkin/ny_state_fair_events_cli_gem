@@ -26,22 +26,18 @@ class NYStateFairConcerts::Concert
   end
 
   def concert_details
-    # puts "-----------------------#{self.band.upcase}-----------------------"
-    # puts "Performing on #{self.date} at #{self.time}"
-    # puts "-" * self.band.length + "----------------------------------------------"
-    # puts "#{self.summary}"
-    # puts ""
-    # puts "For more information visit: #{self.url}"
-    # puts "-" * self.band.length + "----------------------------------------------"
+    # Is there a way to clean this up?
+    line = "-" * (self.date.length) + "-" * 30
+    top_dashes = "-" * (((line.length / 2).to_f) - ((self.band.length / 2).to_f)).abs
+    bottom_dashes = ("-" * (top_dashes.length * 2)) + ("-" * self.band.length)
 
-    dashes = (self.date.length - self.band.length).abs / 2
-    puts "-" * dashes.to_i + "-------#{self.band.upcase}-------" + "-" * dashes.to_i
+    puts top_dashes + "#{self.band.upcase}" + top_dashes
     puts "Performing on #{self.date} at #{self.time}"
-    puts "-" * (self.date.length + self.band.length) + "--------------"
+    puts bottom_dashes
     puts "#{self.summary}"
     puts ""
     puts "For more information visit: #{self.url}"
-    puts "-" * (self.date.length + self.band.length) + "--------------"
+    puts bottom_dashes
   end
 
 end
