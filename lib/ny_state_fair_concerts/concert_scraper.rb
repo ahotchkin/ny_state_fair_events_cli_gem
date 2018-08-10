@@ -31,8 +31,8 @@ class NYStateFairConcerts::ConcertScraper
   # def self.details(concert)
   #   Nokogiri::HTML(open(concert.url))
   # end
-  # 
-  # def self.summary(concert)    
+  #
+  # def self.summary(concert)
   #   # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
   #   if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
   #     self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
