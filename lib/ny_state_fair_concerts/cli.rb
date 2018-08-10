@@ -61,7 +61,7 @@ class NYStateFairConcerts::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= 54
+      if input.to_i > 0 && input.to_i <= NYStateFairConcerts::Concert.all.length
         concert = NYStateFairConcerts::Concert.all[input.to_i-1]
         concert.concert_details
       elsif input == 'menu'

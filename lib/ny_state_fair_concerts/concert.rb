@@ -22,9 +22,9 @@ class NYStateFairConcerts::Concert
     end
   end
 
-  # def summary
-  #   @summary ||= NYStateFairConcerts::ConcertScraper.summary(self)
-  # end
+  def summary
+    @summary ||= NYStateFairConcerts::ConcertScraper.summary(self)
+  end
 
   def concert_details
     line = "-" * (self.date.length) + "-" * 30
@@ -34,8 +34,7 @@ class NYStateFairConcerts::Concert
     puts top_dashes + "#{self.band.upcase}" + top_dashes
     puts "Performing on #{self.date} at #{self.time}"
     puts bottom_dashes
-    # puts "#{self.summary}"
-    puts "Come to Chevy Court on #{self.date} to see #{self.band}."
+    puts "#{self.summary}"
     puts ""
     puts "For more information visit: #{self.url}"
     puts bottom_dashes
