@@ -1,6 +1,5 @@
 class NYStateFairConcerts::Concert
   attr_accessor :band, :date, :time, :url, :summary
-  # Will need to remove :summary if website isn't updated as needed (website changed since project was started)
 
   @@all = []
 

@@ -24,7 +24,7 @@ class NYStateFairConcerts::ConcertScraper
   end
 
 
-# Do these need to be class methods or should they be instance methods?
+# Do these need to be class methods or should they be instance methods? Is every summary the first paragraph?
 
   def self.details(concert)
     Nokogiri::HTML(open(concert.url))
