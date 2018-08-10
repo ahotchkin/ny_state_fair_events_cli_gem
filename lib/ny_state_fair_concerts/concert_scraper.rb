@@ -30,9 +30,16 @@ class NYStateFairConcerts::ConcertScraper
   end
 
   def self.summary(concert)
+    # Potentially remove if summaries are permanently removed from website
+
+    
     # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
     if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
       self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
+    elsif concert.band.include?("parade")
+      nil
+    elsif concert.time.include?("am")
+      nil
     else
       self.details(concert).css("div.entry-content p").first.text
     end

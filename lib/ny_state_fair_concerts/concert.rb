@@ -26,7 +26,6 @@ class NYStateFairConcerts::Concert
   end
 
   def concert_details
-    # Is there a way to clean this up?
     line = "-" * (self.date.length) + "-" * 30
     top_dashes = "-" * (((line.length / 2).to_f) - ((self.band.length / 2).to_f)).abs
     bottom_dashes = ("-" * (top_dashes.length * 2)) + ("-" * self.band.length)

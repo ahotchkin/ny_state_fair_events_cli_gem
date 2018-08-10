@@ -9,7 +9,6 @@ class NYStateFairConcerts::CLI
     puts "Welcome to the 2018 New York State Fair Chevy Court Concerts app!"
     puts ""
     puts "#{scraper.scrape_venue_summary}"
-    puts ""
     menu
   end
 
@@ -62,7 +61,7 @@ class NYStateFairConcerts::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= 26
+      if input.to_i > 0 && input.to_i <= 54
         concert = NYStateFairConcerts::Concert.all[input.to_i-1]
         concert.concert_details
       elsif input == 'menu'
