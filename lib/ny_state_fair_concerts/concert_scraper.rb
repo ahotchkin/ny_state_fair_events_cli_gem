@@ -37,9 +37,9 @@ class NYStateFairConcerts::ConcertScraper
   #   if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
   #     self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
   #   elsif concert.band.include?("parade")
-  #     nil
+  #     puts "Come to Chevy Court on #{concert.date} to see #{concert.band}."
   #   elsif concert.time.include?("am")
-  #     nil
+  #     puts "Come to Chevy Court on #{concert.date} to see #{concert.band}."
   #   else
   #     self.details(concert).css("div.entry-content p").first.text
   #   end
