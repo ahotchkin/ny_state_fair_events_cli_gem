@@ -14,12 +14,21 @@ class NYStateFairConcerts::ConcertScraper
 
   def make_concerts
     self.scrape_index_page.collect do |concert|
-      NYStateFairConcerts::Concert.new(
-        concert.css("td.eventcol").text,
-        concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
-        concert.css("td.timecol").text,
-        concert.css("a").attribute("href").value
-      )
+      if not concert.css("td.eventcol").text.include?("Parade" || "parade") || concert.css("td.timecol").text.include?("am")
+        NYStateFairConcerts::Concert.new(
+          concert.css("td.eventcol").text,
+          concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
+          concert.css("td.timecol").text,
+          concert.css("a").attribute("href").value
+        )
+      elsif concert.css("td.eventcol").text.include?("Parade" || "parade")
+        NYStateFairConcerts::Parade.new(
+          concert.css("td.eventcol").text,
+          concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
+          concert.css("td.timecol").text,
+          concert.css("a").attribute("href").value
+        )
+      end
     end
   end
 
