@@ -21,8 +21,15 @@ class NYStateFairConcerts::ConcertScraper
           concert.css("td.timecol").text,
           concert.css("a").attribute("href").value
         )
-      elsif concert.css("td.eventcol").text.include?("Parade" || "parade")
+      elsif concert.css("td.eventcol").text.include?("Parade") || concert.css("td.eventcol").text.include?("parade")
         NYStateFairConcerts::Parade.new(
+          concert.css("td.eventcol").text,
+          concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
+          concert.css("td.timecol").text,
+          concert.css("a").attribute("href").value
+        )
+      elsif concert.css("td.timecol").text.include?("am")
+        NYStateFairConcerts::Other.new(
           concert.css("td.eventcol").text,
           concert.css("td.datecol").text.gsub(/[\t\n]/, ""),
           concert.css("td.timecol").text,
@@ -43,10 +50,10 @@ class NYStateFairConcerts::ConcertScraper
     # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
     if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
       self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
-    elsif concert.band.include?("Parade" || "parade")
-      puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
-    elsif concert.time.include?("am")
-      puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
+    # elsif concert.band.include?("Parade" || "parade")
+    #   puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
+    # elsif concert.time.include?("am")
+    #   puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
     else
       self.details(concert).css("div.entry-content p").first.text
     end
