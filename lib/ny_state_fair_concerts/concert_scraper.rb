@@ -50,10 +50,6 @@ class NYStateFairConcerts::ConcertScraper
     # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
     if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
       self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
-    # elsif concert.band.include?("Parade" || "parade")
-    #   puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
-    # elsif concert.time.include?("am")
-    #   puts "Join us at Chevy Court on #{concert.date} to see #{concert.band}."
     else
       self.details(concert).css("div.entry-content p").first.text
     end
