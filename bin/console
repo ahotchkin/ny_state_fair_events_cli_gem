@@ -10,8 +10,5 @@ require "ny_state_fair_events"
 # require "pry"
 # Pry.start
 
-# require "irb"
-# IRB.start(__FILE__)
-
-cli = NYStateFairEvents::CLI.new
-cli.call
+require "irb"
+IRB.start
