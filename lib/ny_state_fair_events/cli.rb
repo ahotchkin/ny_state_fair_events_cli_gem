@@ -1,12 +1,12 @@
 # CLI Controller - responsible for user interaction
 
-class NYStateFairConcerts::CLI
+class NYStateFairEvents::CLI
 
   def call
-    scraper = NYStateFairConcerts::ConcertScraper.new
-    scraper.make_concerts
+    scraper = NYStateFairEvents::Scraper.new
+    scraper.make_events
     puts ""
-    puts "Welcome to the 2018 New York State Fair Chevy Court Concerts app!"
+    puts "Welcome to the 2018 New York State Fair Chevy Court Events app!"
     puts ""
     puts "#{scraper.scrape_venue_summary}"
     menu
@@ -36,7 +36,7 @@ class NYStateFairConcerts::CLI
         list_other
       elsif input == "help"
         puts ""
-        puts "This app is designed to provide information on all concerts taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for concert details."
+        puts "This app is designed to provide information on all events taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for event details."
       elsif input == "directions"
         puts ""
         puts "Click on the below link for directions to Chevy Court:"
@@ -54,7 +54,7 @@ class NYStateFairConcerts::CLI
     puts ""
     puts "2018 Chevy Court Concerts:"
     puts ""
-    NYStateFairConcerts::Concert.list_all
+    NYStateFairEvents::Concert.list_all
 
     input = ""
     while input != "exit"
@@ -67,8 +67,8 @@ class NYStateFairConcerts::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= NYStateFairConcerts::Concert.all.length
-        concert = NYStateFairConcerts::Concert.all[input.to_i-1]
+      if input.to_i > 0 && input.to_i <= NYStateFairEvents::Concert.all.length
+        concert = NYStateFairEvents::Concert.all[input.to_i-1]
         concert.concert_details
       elsif input == 'menu'
         menu
@@ -85,7 +85,7 @@ class NYStateFairConcerts::CLI
     puts ""
     puts "2018 Chevy Court Parades:"
     puts ""
-    NYStateFairConcerts::Parade.list_all
+    NYStateFairEvents::Parade.list_all
 
     input = ""
     while input != "exit"
@@ -98,8 +98,8 @@ class NYStateFairConcerts::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= NYStateFairConcerts::Parade.all.length
-        parade = NYStateFairConcerts::Parade.all[input.to_i-1]
+      if input.to_i > 0 && input.to_i <= NYStateFairEvents::Parade.all.length
+        parade = NYStateFairEvents::Parade.all[input.to_i-1]
         parade.parade_details
       elsif input == 'menu'
         menu
@@ -116,7 +116,7 @@ class NYStateFairConcerts::CLI
     puts ""
     puts "2018 Chevy Court Events:"
     puts ""
-    NYStateFairConcerts::Other.list_all
+    NYStateFairEvents::Other.list_all
 
     input = ""
     while input != "exit"
@@ -129,8 +129,8 @@ class NYStateFairConcerts::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= NYStateFairConcerts::Other.all.length
-        other = NYStateFairConcerts::Other.all[input.to_i-1]
+      if input.to_i > 0 && input.to_i <= 2
+        other = NYStateFairEvents::Other.all[input.to_i-1]
         other.other_details
       elsif input == 'menu'
         menu

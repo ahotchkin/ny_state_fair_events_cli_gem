@@ -1,6 +1,4 @@
-require 'pry'
-
-class NYStateFairConcerts::Other
+class NYStateFairEvents::Parade
   attr_accessor :name, :date, :time, :url
 
   @@all = []
@@ -18,25 +16,18 @@ class NYStateFairConcerts::Other
   end
 
   def self.list_all
-    names = @@all.map { |other| other.name }.uniq
-    names.each.with_index(1) do |other, i|
-      puts "#{i}. #{other}"
+    @@all.each.with_index(1) do |parade, i|
+      puts "#{i}. #{parade.name}"
     end
   end
 
-  def other_details
-
-    line = "-" * (self.date.length) + "-" * 20
+  def parade_details
+    line = "-" * (self.date.length) + "-" * 30
     top_dashes = "-" * (((line.length / 2).to_f) - ((self.name.length / 2).to_f)).abs
     bottom_dashes = ("-" * (top_dashes.length * 2)) + ("-" * self.name.length)
 
     puts top_dashes + "#{self.name.upcase}" + top_dashes
-    puts ""
-    @@all.each.with_index(1) do |other, i|
-      if other.name == self.name
-        puts "#{other.date} at #{other.time}"
-      end
-    end
+    puts "#{self.date} at #{self.time}"
     puts ""
     puts "For more information visit: #{self.url}"
     puts bottom_dashes

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "ny_state_fair_events"
+
+NYStateFairEvents::CLI.new.call

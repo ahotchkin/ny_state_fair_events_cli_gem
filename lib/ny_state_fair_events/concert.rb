@@ -1,4 +1,4 @@
-class NYStateFairConcerts::Concert
+class NYStateFairEvents::Concert
   attr_accessor :band, :date, :time, :url, :summary
 
   @@all = []
@@ -22,7 +22,7 @@ class NYStateFairConcerts::Concert
   end
 
   def summary
-    @summary ||= NYStateFairConcerts::ConcertScraper.summary(self)
+    @summary ||= NYStateFairEvents::Scraper.summary(self)
   end
 
   def concert_details

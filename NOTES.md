@@ -1,19 +1,23 @@
-NYStateFairConcertsCLI will be a command-line app to allow a user to see a list of the Chevy Court concerts at the 2018 New York State Fair. When they run the app, they will see a greeting and be asked to enter a number corresponding to a prompt.
+NYStateFairEventsCLI will be a command-line app to allow a user to see a list of the Chevy Court events at the 2018 New York State Fair. When they run the app, they will see a greeting and be asked to enter a prompt.
 
 Prompts:
 	1. Concerts - will provide a numbered list of all Chevy Court concerts at the 2018 New York State Fair; data scraped from this website: https://nysfair.ny.gov/venue/chevy-court/
-	2. Help - will provide directions on how to use the app
-	3. Exit - will exit the app
+	2. Parades - will provide a numbered list of all Chevy Court parades at the 2018 New York State Fair; data scraped from this website: https://nysfair.ny.gov/venue/chevy-court/
+	3. Other - will provide a numbered list of all other Chevy Court events at the 2018 New York State Fair; data scraped from this website: https://nysfair.ny.gov/venue/chevy-court/
+	4. Help - will provide directions on how to use the app
+	5. Exit - will exit the app
 
-From the concert list view, the user will have two options:
-	1. Enter a number associated with a concert to see details: date, time, url with more information
+From the concert/parade/other list view, the user will have two options:
+	1. Enter a number associated with an event to see details: date, time, url with more information
 	2. Enter ‘back’ to go back to the main menu
 
 
 Architecture
 	- Concert class to represent each concert
-	- ConcertScraper to do the scraping of the site and create the concerts
-	- NYStateFairConcertsCLI to interact with the user
+	- Parade class to represent each parade
+	- Other class to represent all other events
+	- Scraper to do the scraping of the site and create the concerts
+	- NYStateFairEventsCLI to interact with the user
 
 
 First version:

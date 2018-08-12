@@ -1,13 +1,13 @@
-# NyStateFairConcerts
+# NyStateFairEvents
 
-This Ruby gem provides a CLI to view a listing of all Chevy Court concerts at the 2018 New York State Fair. While running the gem, users will be able to view details for all concerts to help them decide which band they would like to rock out to this year (Hanson, anyone?).
+This Ruby gem provides a CLI to view a listing of all Chevy Court events at the 2018 New York State Fair. While running the gem, users will be able to view details for all events to help them decide which parade they would like to see and/or which band they would like to rock out to this year (Hanson, anyone?).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ny_state_fair_concerts'
+gem 'ny_state_fair_events'
 ```
 
 And then execute:
@@ -16,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ny_state_fair_concerts
+    $ gem install ny_state_fair_events
 
 ## Usage
 
-Run: `ny_state_fair_concerts` after installing the gem, and follow the on-screen prompts.
+Run: `ny_state_fair_events` after installing the gem, and follow the on-screen prompts.
 
 ## Development
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'ahotchkin'/ny_state_fair_concerts_cli_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'ahotchkin'/ny_state_fair_events_cli_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -38,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the NyStateFairConcerts project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'ahotchkin'/ny_state_fair_concerts_cli_gem/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the NyStateFairEvents project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'ahotchkin'/ny_state_fair_events_cli_gem/blob/master/CODE_OF_CONDUCT.md).

@@ -1,17 +1,17 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ny_state_fair_concerts/version"
+require "ny_state_fair_events/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ny_state_fair_concerts"
-  spec.version       = NYStateFairConcerts::VERSION
+  spec.name          = "ny_state_fair_events"
+  spec.version       = NYStateFairEvents::VERSION
   spec.authors       = ["'Allyson Hotchkin'"]
   spec.email         = ["'ahotchk1@yahoo.com'"]
 
-  spec.summary       = "NY State Fair Chevy Court Concerts"
-  spec.description   = "Provides a listing of all Chevy Court concerts at the 2018 NY State Fair, and details for each concert"
-  spec.homepage      = "https://github.com/ahotchkin/ny_state_fair_concerts_cli_gem"
+  spec.summary       = "NY State Fair Chevy Court Events"
+  spec.description   = "Provides a listing of all Chevy Court events at the 2018 NY State Fair, and details for each event"
+  spec.homepage      = "https://github.com/ahotchkin/ny_state_fair_events_cli_gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

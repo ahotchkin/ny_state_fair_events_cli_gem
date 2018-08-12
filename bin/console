@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "ny_state_fair_concerts"
+require "ny_state_fair_events"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -13,5 +13,5 @@ require "ny_state_fair_concerts"
 # require "irb"
 # IRB.start(__FILE__)
 
-cli = NYStateFairConcerts::CLI.new
+cli = NYStateFairEvents::CLI.new
 cli.call
