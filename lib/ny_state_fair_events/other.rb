@@ -1,5 +1,3 @@
-require 'pry'
-
 class NYStateFairEvents::Other
   attr_accessor :name, :date, :time, :url
 
@@ -39,6 +37,7 @@ class NYStateFairEvents::Other
     puts ""
     puts "For more information visit: #{self.url}"
     puts bottom_dashes
+    puts ""
   end
 
 end

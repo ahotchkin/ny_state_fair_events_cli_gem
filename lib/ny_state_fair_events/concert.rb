@@ -22,7 +22,7 @@ class NYStateFairEvents::Concert
   end
 
   def summary
-    @summary ||= NYStateFairEvents::Scraper.summary(self)
+    @summary ||= NYStateFairEvents::Scraper.new.summary(self)
   end
 
   def concert_details
@@ -37,6 +37,7 @@ class NYStateFairEvents::Concert
     puts ""
     puts "For more information visit: #{self.url}"
     puts bottom_dashes
+    puts ""
   end
 
 end

@@ -31,6 +31,7 @@ class NYStateFairEvents::Parade
     puts ""
     puts "For more information visit: #{self.url}"
     puts bottom_dashes
+    puts ""
   end
 
 end
