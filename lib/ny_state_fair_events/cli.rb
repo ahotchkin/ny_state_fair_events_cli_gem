@@ -50,8 +50,6 @@ class NYStateFairEvents::CLI
     end
   end
 
-  # Is there a way to combine list_concerts, list_parades, and list_other into one method?
-
   def list_concerts
     puts ""
     puts "2018 Chevy Court Concerts:"
