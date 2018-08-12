@@ -4,7 +4,6 @@ class NYStateFairConcerts::Other
   attr_accessor :name, :date, :time, :url
 
   @@all = []
-  @@names = []
 
   def initialize(name=nil, date=nil, time=nil, url=nil)
     @name = name
@@ -18,17 +17,10 @@ class NYStateFairConcerts::Other
     @@all
   end
 
-  def self.names
-    binding pry
-    @@all.map do |other|
-      @@names << other.name
-    end
-    @@names = @@names.uniq
-  end
-
   def self.list_all
-    @@all.each.with_index(1) do |other, i|
-      puts "#{i}. #{other.name}"
+    names = @@all.map { |other| other.name }.uniq
+    names.each_with_index do |other, i|
+      puts "#{i + 1}. #{other}"
     end
   end
 
