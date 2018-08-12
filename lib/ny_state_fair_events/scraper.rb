@@ -14,7 +14,7 @@ class NYStateFairEvents::Scraper
 
   def make_events
     self.scrape_index_page.collect do |event|
-      if not event.css("td.eventcol").text.include?("Parade" || "parade") || event.css("td.timecol").text.include?("am")
+      if not event.css("td.eventcol").text.include?("Parade") || event.css("td.eventcol").text.include?("parade") || event.css("td.timecol").text.include?("am")
         NYStateFairEvents::Concert.new(
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
@@ -28,7 +28,7 @@ class NYStateFairEvents::Scraper
           event.css("td.timecol").text,
           event.css("a").attribute("href").value
         )
-      elsif event.css("td.timecol").text.include?("am")
+      else
         NYStateFairEvents::Other.new(
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
@@ -40,7 +40,7 @@ class NYStateFairEvents::Scraper
   end
 
 
-# Do these need to be class methods or should they be instance methods? Is every summary the first paragraph?
+# ***Do these need to be class methods or should they be instance methods? Is every summary the first paragraph?
 
   def self.details(concert)
     Nokogiri::HTML(open(concert.url))
