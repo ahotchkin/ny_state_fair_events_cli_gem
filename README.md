@@ -1,6 +1,6 @@
 # NyStateFairEvents
 
-This Ruby gem provides a CLI to view a listing of all Chevy Court events at the 2018 New York State Fair. While running the gem, users will be able to view details for all events to help them decide which parade they would like to see and/or which band they would like to rock out to this year (Hanson, anyone?).
+This Ruby gem provides a CLI to view a listing of all Chevy Court events (concerts, parades, etc.) at the 2018 New York State Fair. While running the gem, users will be able to view details for all events to help them decide which event they would like to attend and/or which band they would like to rock out to this year (Hanson, anyone?).
 
 ## Installation
 
