@@ -2,6 +2,7 @@ class NYStateFairEvents::Other
   attr_accessor :name, :date, :time, :url
 
   @@all = []
+  @@all_unique
 
   def initialize(name=nil, date=nil, time=nil, url=nil)
     @name = name
@@ -16,10 +17,14 @@ class NYStateFairEvents::Other
   end
 
   def self.list_all
-    names = @@all.map { |other| other.name }.uniq
-    names.each.with_index(1) do |other, i|
+    @@all_unique = @@all.map { |other| other.name }.uniq
+    @@all_unique.each.with_index(1) do |other, i|
       puts "#{i}. #{other}"
     end
+  end
+
+  def self.all_unique
+    @@all_unique
   end
 
   def other_details

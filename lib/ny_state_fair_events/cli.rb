@@ -131,7 +131,7 @@ class NYStateFairEvents::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= 2
+      if input.to_i > 0 && input.to_i <= NYStateFairEvents::Other.all_unique.length
         other = NYStateFairEvents::Other.all[input.to_i-1]
         other.other_details
       elsif input == 'menu'
