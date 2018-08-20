@@ -2,7 +2,6 @@ class NYStateFairEvents::OtherEvent
   attr_accessor :name, :date, :time, :url
 
   @@all = []
-  @@all_unique
 
   def initialize(name=nil, date=nil, time=nil, url=nil)
     @name = name
