@@ -1,4 +1,4 @@
-class NYStateFairEvents::Other
+class NYStateFairEvents::OtherEvent
   attr_accessor :name, :date, :time, :url
 
   @@all = []

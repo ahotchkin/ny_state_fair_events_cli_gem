@@ -29,7 +29,7 @@ class NYStateFairEvents::Scraper
           event.css("a").attribute("href").value
         )
       else
-        NYStateFairEvents::Other.new(
+        NYStateFairEvents::OtherEvent.new(
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
           event.css("td.timecol").text,

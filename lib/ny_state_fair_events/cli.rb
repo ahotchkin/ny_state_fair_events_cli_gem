@@ -33,7 +33,7 @@ class NYStateFairEvents::CLI
       elsif input == 'parades'
         list_parades
       elsif input == 'other'
-        list_other
+        list_other_events
       elsif input == "help"
         puts ""
         puts "This app is designed to provide information on all events taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for event details."
@@ -114,11 +114,11 @@ class NYStateFairEvents::CLI
     end
   end
 
-  def list_other
+  def list_other_events
     puts ""
     puts "2018 Chevy Court Events:"
     puts ""
-    NYStateFairEvents::Other.list_all
+    NYStateFairEvents::OtherEvent.list_all
 
     input = ""
     while input != "exit"
@@ -131,8 +131,8 @@ class NYStateFairEvents::CLI
       puts ""
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i <= NYStateFairEvents::Other.all_unique.length
-        other = NYStateFairEvents::Other.all[input.to_i-1]
+      if input.to_i > 0 && input.to_i <= NYStateFairEvents::OtherEvent.all_unique.length
+        other = NYStateFairEvents::OtherEvent.all[input.to_i-1]
         other.other_details
       elsif input == 'menu'
         menu
