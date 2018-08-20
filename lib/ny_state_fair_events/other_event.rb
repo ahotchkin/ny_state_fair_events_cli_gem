@@ -26,7 +26,7 @@ class NYStateFairEvents::OtherEvent
     @@all_unique
   end
 
-  def other_details
+  def other_event_details
     line = "-" * (self.date.length) + "-" * 20
     top_dashes = "-" * (((line.length / 2).to_f) - ((self.name.length / 2).to_f)).abs
     bottom_dashes = ("-" * (top_dashes.length * 2)) + ("-" * self.name.length)

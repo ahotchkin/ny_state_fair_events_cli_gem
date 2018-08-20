@@ -133,7 +133,7 @@ class NYStateFairEvents::CLI
 
       if input.to_i > 0 && input.to_i <= NYStateFairEvents::OtherEvent.all_unique.length
         other = NYStateFairEvents::OtherEvent.all[input.to_i-1]
-        other.other_details
+        other.other_event_details
       elsif input == 'menu'
         menu
       elsif input != "exit"
