@@ -3,7 +3,7 @@ class NYStateFairEvents::Concert
 
   @@all = []
 
-  def initialize(band=nil, date=nil, time=nil, url=nil)
+  def initialize(band = nil, date = nil, time = nil, url = nil)
     @band = band
     @date = date
     @time = time

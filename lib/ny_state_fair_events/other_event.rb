@@ -3,7 +3,7 @@ class NYStateFairEvents::OtherEvent
 
   @@all = []
 
-  def initialize(name=nil, date=nil, time=nil, url=nil)
+  def initialize(name = nil, date = nil, time = nil, url = nil)
     @name = name
     @date = date
     @time = time
