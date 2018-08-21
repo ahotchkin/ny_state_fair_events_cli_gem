@@ -69,7 +69,7 @@ class NYStateFairEvents::CLI
       puts ""
       concert_input = gets.strip.downcase
 
-      if concert_input.to_i > 0 && concert_input.to_i <= NYStateFairEvents::Concert.all.length
+      if concert_input.to_i.between?(1, NYStateFairEvents::Concert.all.length)
         concert = NYStateFairEvents::Concert.all[concert_input.to_i-1]
         concert.concert_details
       elsif concert_input == "menu"
@@ -100,7 +100,7 @@ class NYStateFairEvents::CLI
       puts ""
       parade_input = gets.strip.downcase
 
-      if parade_input.to_i > 0 && parade_input.to_i <= NYStateFairEvents::Parade.all.length
+      if parade_input.to_i.between?(1, NYStateFairEvents::Parade.all.length)
         parade = NYStateFairEvents::Parade.all[parade_input.to_i-1]
         parade.parade_details
       elsif parade_input == "menu"
@@ -131,7 +131,7 @@ class NYStateFairEvents::CLI
       puts ""
       other_input = gets.strip.downcase
 
-      if other_input.to_i > 0 && other_input.to_i <= NYStateFairEvents::OtherEvent.all_unique.length
+      if other_input.to_i.between?(1, NYStateFairEvents::OtherEvent.all_unique.length)
         other = NYStateFairEvents::OtherEvent.all[other_input.to_i-1]
         other.other_event_details
       elsif other_input == "menu"
