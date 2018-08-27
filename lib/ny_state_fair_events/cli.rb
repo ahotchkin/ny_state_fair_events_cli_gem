@@ -29,11 +29,11 @@ class NYStateFairEvents::CLI
       menu_input = gets.strip.downcase
 
       if menu_input == "concerts"
-        list_concerts
+        list_events(NYStateFairEvents::Concert)
       elsif menu_input == "parades"
-        list_parades
+        list_events(NYStateFairEvents::Parade)
       elsif menu_input == "other"
-        list_other_events
+        list_other
       elsif menu_input == "help"
         puts ""
         puts "This app is designed to provide information on all events taking place at Chevy Court during the 2018 New York State Fair. Follow the prompts for event details."
@@ -52,63 +52,77 @@ class NYStateFairEvents::CLI
     end
   end
 
-  def list_concerts
-    puts ""
-    puts "2018 Chevy Court Concerts:"
-    puts ""
-    NYStateFairEvents::Concert.list_all
+  # def list_concerts
+  #   puts ""
+  #   puts "2018 Chevy Court Concerts:"
+  #   puts ""
+  #   NYStateFairEvents::Concert.list_all
+  #
+  #   concert_input = ""
+  #   while concert_input != "exit"
+  #     puts ""
+  #     puts <<-DOC.gsub /^\s*/, ""
+  #       Enter a concert number to get details on that concert. Otherwise, enter one of the following prompts:
+  #       - Enter 'menu' to see the main menu
+  #       - Enter 'exit' to exit
+  #     DOC
+  #     puts ""
+  #     user_interface(NYStateFairEvents::Concert)
+  #   end
+  # end
+  #
+  # def list_parades
+  #   puts ""
+  #   puts "2018 Chevy Court Parades:"
+  #   puts ""
+  #   NYStateFairEvents::Parade.list_all
+  #
+  #   parade_input = ""
+  #   while parade_input != "exit"
+  #     puts ""
+  #     puts <<-DOC.gsub /^\s*/, ""
+  #       Enter a parade number to get details on that parade. Otherwise, enter one of the following prompts:
+  #       - Enter 'menu' to see the main menu
+  #       - Enter 'exit' to exit
+  #     DOC
+  #     puts ""
+  #     user_interface(NYStateFairEvents::Parade)
+  #   end
+  # end
 
-    concert_input = ""
-    while concert_input != "exit"
+  def list_events(event_class)
+    event_name = "#{event_class}".gsub("NYStateFairEvents::", "")
+    puts ""
+    puts "2018 Chevy Court #{event_name}s:"
+    puts ""
+    event_class.list_all
+
+    input = ""
+    while input != "exit"
       puts ""
       puts <<-DOC.gsub /^\s*/, ""
-        Enter a concert number to get details on that concert. Otherwise, enter one of the following prompts:
+        Enter a #{event_name.downcase} number to get details on that #{event_name.downcase}. Otherwise, enter one of the following prompts:
         - Enter 'menu' to see the main menu
         - Enter 'exit' to exit
       DOC
       puts ""
-      user_interface(NYStateFairEvents::Concert)
+      input = gets.strip.downcase
+
+      if input.to_i.between?(1, event_class.all.length)
+        event = event_class.all[input.to_i-1]
+        event.details
+      elsif input == "menu"
+        menu
+      elsif input != "exit"
+        puts ""
+        puts "I'm sorry, I didn't catch that."
+      elsif input == "exit"
+        goodbye
+      end
     end
   end
 
-  def list_parades
-    puts ""
-    puts "2018 Chevy Court Parades:"
-    puts ""
-    NYStateFairEvents::Parade.list_all
-
-    parade_input = ""
-    while parade_input != "exit"
-      puts ""
-      puts <<-DOC.gsub /^\s*/, ""
-        Enter a parade number to get details on that parade. Otherwise, enter one of the following prompts:
-        - Enter 'menu' to see the main menu
-        - Enter 'exit' to exit
-      DOC
-      puts ""
-      user_interface(NYStateFairEvents::Parade)
-    end
-  end
-
-  def user_interface(event_class)
-    event_name = "#{event_class}".delete "NYStateFairEvents::"
-    puts "enter a #{event_name.downcase} number to get details on that #{event_name.downcase}"
-    input = gets.strip.downcase
-
-    if input.to_i.between?(1, event_class.all.length)
-      event = event_class.all[input.to_i-1]
-      event.details
-    elsif input == "menu"
-      menu
-    elsif input != "exit"
-      puts ""
-      puts "I'm sorry, I didn't catch that."
-    elsif input == "exit"
-      goodbye
-    end
-  end
-
-  def list_other_events
+  def list_other
     puts ""
     puts "2018 Chevy Court Events:"
     puts ""
