@@ -52,44 +52,6 @@ class NYStateFairEvents::CLI
     end
   end
 
-  # def list_concerts
-  #   puts ""
-  #   puts "2018 Chevy Court Concerts:"
-  #   puts ""
-  #   NYStateFairEvents::Concert.list_all
-  #
-  #   concert_input = ""
-  #   while concert_input != "exit"
-  #     puts ""
-  #     puts <<-DOC.gsub /^\s*/, ""
-  #       Enter a concert number to get details on that concert. Otherwise, enter one of the following prompts:
-  #       - Enter 'menu' to see the main menu
-  #       - Enter 'exit' to exit
-  #     DOC
-  #     puts ""
-  #     user_interface(NYStateFairEvents::Concert)
-  #   end
-  # end
-  #
-  # def list_parades
-  #   puts ""
-  #   puts "2018 Chevy Court Parades:"
-  #   puts ""
-  #   NYStateFairEvents::Parade.list_all
-  #
-  #   parade_input = ""
-  #   while parade_input != "exit"
-  #     puts ""
-  #     puts <<-DOC.gsub /^\s*/, ""
-  #       Enter a parade number to get details on that parade. Otherwise, enter one of the following prompts:
-  #       - Enter 'menu' to see the main menu
-  #       - Enter 'exit' to exit
-  #     DOC
-  #     puts ""
-  #     user_interface(NYStateFairEvents::Parade)
-  #   end
-  # end
-
   def list_events(event_class)
     event_name = "#{event_class}".gsub("NYStateFairEvents::", "")
     puts ""
