@@ -67,20 +67,7 @@ class NYStateFairEvents::CLI
         - Enter 'exit' to exit
       DOC
       puts ""
-      interface(NYStateFairEvents::Concert)
-      # concert_input = gets.strip.downcase
-      #
-      # if concert_input.to_i.between?(1, NYStateFairEvents::Concert.all.length)
-      #   concert = NYStateFairEvents::Concert.all[concert_input.to_i-1]
-      #   concert.concert_details
-      # elsif concert_input == "menu"
-      #   menu
-      # elsif concert_input != "exit"
-      #   puts ""
-      #   puts "I'm sorry, I didn't catch that."
-      # elsif concert_input == "exit"
-      #   goodbye
-      # end
+      user_interface(NYStateFairEvents::Concert)
     end
   end
 
@@ -99,24 +86,11 @@ class NYStateFairEvents::CLI
         - Enter 'exit' to exit
       DOC
       puts ""
-      interface(NYStateFairEvents::Parade)
-      # parade_input = gets.strip.downcase
-      #
-      # if parade_input.to_i.between?(1, NYStateFairEvents::Parade.all.length)
-      #   parade = NYStateFairEvents::Parade.all[parade_input.to_i-1]
-      #   parade.parade_details
-      # elsif parade_input == "menu"
-      #   menu
-      # elsif parade_input != "exit"
-      #   puts ""
-      #   puts "I'm sorry, I didn't catch that."
-      # elsif parade_input == "exit"
-      #   goodbye
-      # end
+      user_interface(NYStateFairEvents::Parade)
     end
   end
 
-  def interface(event_class)
+  def user_interface(event_class)
     input = gets.strip.downcase
 
     if input.to_i.between?(1, event_class.all.length)
