@@ -91,6 +91,8 @@ class NYStateFairEvents::CLI
   end
 
   def user_interface(event_class)
+    event_name = "#{event_class}".delete "NYStateFairEvents::"
+    puts "enter a #{event_name.downcase} number to get details on that #{event_name.downcase}"
     input = gets.strip.downcase
 
     if input.to_i.between?(1, event_class.all.length)
