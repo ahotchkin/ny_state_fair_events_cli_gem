@@ -47,9 +47,12 @@ class NYStateFairEvents::Scraper
   end
 
   def summary(concert)
-    # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag
+    # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag.
+    # Dropkick Murphys concert was added late and doesn't have a summary
     if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
       self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
+    elsif concert.url == "https://nysfair.ny.gov/event/dropkick-murphys/"
+      nil
     else
       self.details(concert).css("div.entry-content p").first.text
     end
