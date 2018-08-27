@@ -39,7 +39,6 @@ class NYStateFairEvents::Scraper
     end
   end
 
-
   # Methods specific to scraping the concert summaries:
 
   def details(concert)

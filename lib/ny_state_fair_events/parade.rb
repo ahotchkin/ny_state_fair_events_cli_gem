@@ -21,7 +21,7 @@ class NYStateFairEvents::Parade
     end
   end
 
-  def parade_details
+  def details
     line = "-" * (self.date.length) + "-" * 30
     top_dashes = "-" * (((line.length / 2).to_f) - ((self.name.length / 2).to_f)).abs
     bottom_dashes = ("-" * (top_dashes.length * 2)) + ("-" * self.name.length)

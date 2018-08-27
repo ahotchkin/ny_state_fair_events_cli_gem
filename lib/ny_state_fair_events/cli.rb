@@ -67,19 +67,20 @@ class NYStateFairEvents::CLI
         - Enter 'exit' to exit
       DOC
       puts ""
-      concert_input = gets.strip.downcase
-
-      if concert_input.to_i.between?(1, NYStateFairEvents::Concert.all.length)
-        concert = NYStateFairEvents::Concert.all[concert_input.to_i-1]
-        concert.concert_details
-      elsif concert_input == "menu"
-        menu
-      elsif concert_input != "exit"
-        puts ""
-        puts "I'm sorry, I didn't catch that."
-      elsif concert_input == "exit"
-        goodbye
-      end
+      interface(NYStateFairEvents::Concert)
+      # concert_input = gets.strip.downcase
+      #
+      # if concert_input.to_i.between?(1, NYStateFairEvents::Concert.all.length)
+      #   concert = NYStateFairEvents::Concert.all[concert_input.to_i-1]
+      #   concert.concert_details
+      # elsif concert_input == "menu"
+      #   menu
+      # elsif concert_input != "exit"
+      #   puts ""
+      #   puts "I'm sorry, I didn't catch that."
+      # elsif concert_input == "exit"
+      #   goodbye
+      # end
     end
   end
 
@@ -98,19 +99,36 @@ class NYStateFairEvents::CLI
         - Enter 'exit' to exit
       DOC
       puts ""
-      parade_input = gets.strip.downcase
+      interface(NYStateFairEvents::Parade)
+      # parade_input = gets.strip.downcase
+      #
+      # if parade_input.to_i.between?(1, NYStateFairEvents::Parade.all.length)
+      #   parade = NYStateFairEvents::Parade.all[parade_input.to_i-1]
+      #   parade.parade_details
+      # elsif parade_input == "menu"
+      #   menu
+      # elsif parade_input != "exit"
+      #   puts ""
+      #   puts "I'm sorry, I didn't catch that."
+      # elsif parade_input == "exit"
+      #   goodbye
+      # end
+    end
+  end
 
-      if parade_input.to_i.between?(1, NYStateFairEvents::Parade.all.length)
-        parade = NYStateFairEvents::Parade.all[parade_input.to_i-1]
-        parade.parade_details
-      elsif parade_input == "menu"
-        menu
-      elsif parade_input != "exit"
-        puts ""
-        puts "I'm sorry, I didn't catch that."
-      elsif parade_input == "exit"
-        goodbye
-      end
+  def interface(event_class)
+    input = gets.strip.downcase
+
+    if input.to_i.between?(1, event_class.all.length)
+      event = event_class.all[input.to_i-1]
+      event.details
+    elsif input == "menu"
+      menu
+    elsif input != "exit"
+      puts ""
+      puts "I'm sorry, I didn't catch that."
+    elsif input == "exit"
+      goodbye
     end
   end
 
