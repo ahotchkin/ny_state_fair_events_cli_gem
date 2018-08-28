@@ -1,13 +1,13 @@
 class NYStateFairEvents::Concert
-  attr_accessor :band, :date, :time, :url, :summary
+  attr_accessor :band, :date, :time, :url, :filename, :summary
 
   @@all = []
 
-  def initialize(band = nil, date = nil, time = nil, url = nil)
+  def initialize(band = nil, date = nil, time = nil, filename = nil)
     @band = band
     @date = date
     @time = time
-    @url = url
+    @filename = filename
     @@all << self
   end
 
@@ -19,6 +19,10 @@ class NYStateFairEvents::Concert
     @@all.each.with_index(1) do |concert, i|
       puts "#{i}. #{concert.band}"
     end
+  end
+
+  def url
+    @url ||= NYStateFairEvents::Scraper.new.url(self)
   end
 
   def summary
