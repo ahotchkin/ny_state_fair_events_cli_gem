@@ -24,6 +24,10 @@ First version:
 A user will see the greeting and be asked to enter a prompt. If they choose 'concerts’ they’ll see a list of fake data that we hardcode into the app.
 
 
+Note:
+After an event is over it disappears from the website. To account for this, the HTML files for the majority of the events have been added to the program to keep it running smoothly until the end of time.
+
+
 Scraping Practice
 Concert: parsed_content.css('tr.event-list-feed-item td.eventcol')[i].text
 	- can also use .search instead of .css
@@ -34,6 +38,3 @@ Link: links[i]
 links = parsed_content.css(‘tr.event-list-feed-item a’).map do |link|
 		link.attribute(‘href’).value
 	    end
-
-Note:
-After an event is over it disappears from the website. To account for this, the HTML files for the majority of the events have been added to the program to keep it running smoothly until the end of time.
