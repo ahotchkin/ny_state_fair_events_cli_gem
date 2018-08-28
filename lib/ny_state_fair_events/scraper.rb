@@ -19,39 +19,49 @@ class NYStateFairEvents::Scraper
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
           event.css("td.timecol").text,
-          event.css("a").attribute("href").value
+          event.css("a").attr("href")
         )
       elsif event.css("td.eventcol").text.include?("Parade") || event.css("td.eventcol").text.include?("parade")
         NYStateFairEvents::Parade.new(
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
           event.css("td.timecol").text,
-          event.css("a").attribute("href").value
+          event.css("a").attr("href")
         )
       else
         NYStateFairEvents::OtherEvent.new(
           event.css("td.eventcol").text,
           event.css("td.datecol").text.gsub(/[\t\n]/, ""),
           event.css("td.timecol").text,
-          event.css("a").attribute("href").value
+          event.css("a").attr("href")
         )
       end
     end
   end
 
-  # Methods specific to scraping the concert summaries:
+
+  # Need to be able to scrape concert summaries from within fixture html files since webpages will no longer exist after a certain point. Did the following to accomplish this task:
+    # => Replaced concert URLs in chevy-court-events-revised-links.html with fixture html filenames
+      # => chevy-court-events.html contains original html
+    # => Added Concert attribute "filename"
+      #  => Concert now initializes with filename instead of URL
+    # => Updated #details method to scrape the fixture concert html file instead of the concert webpage
+    # => Added #url method to scrape the concert URL from the fixture concert html file
+      # => Included the concert URL at the top of the fixture concert html file for easy access
+    # => Doesn't impact parades and other events since all other events ONLY scrape from chevy-court-events-revised-links.html
+
+  # Methods to scrape concert URLs & summaries below:
 
   def details(concert)
-    Nokogiri::HTML(open(concert.url))
+    Nokogiri::HTML(open(concert.filename))
+  end
+
+  def url(concert)
+    self.details(concert).css("link").attr("href")
   end
 
   def summary(concert)
-    # Need to use if statement because Smokey Robinson's page is the only one without a <p> tag.
-    if concert.url == "https://nysfair.ny.gov/event/smokey-robinson/"
-      self.details(concert).css("div.entry-content").first.text.match(/^.*Some.*$/).to_s
-    else
-      self.details(concert).css("div.entry-content p").first.text
-    end
+    self.details(concert).css("div.entry-content p").first.text
   end
 
 end
