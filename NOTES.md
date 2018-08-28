@@ -34,3 +34,6 @@ Link: links[i]
 links = parsed_content.css(‘tr.event-list-feed-item a’).map do |link|
 		link.attribute(‘href’).value
 	    end
+
+Note:
+After an event is over it disappears from the website. To account for this, the HTML files for the majority of the events have been added to the program to keep it running smoothly until the end of time.
