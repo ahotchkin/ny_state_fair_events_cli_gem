@@ -2,6 +2,7 @@ class NYStateFairEvents::Scraper
 
   def get_page
     Nokogiri::HTML(open("fixtures/chevy-court-events-revised-links.html"))
+    # Nokogiri::HTML(open("https://nysfair.ny.gov/venue/chevy-court/"))
   end
 
   def scrape_venue_summary
@@ -54,6 +55,7 @@ class NYStateFairEvents::Scraper
 
   def details(concert)
     Nokogiri::HTML(open(concert.filename))
+    # Nokogiri::HTML(open(concert.url))
   end
 
   def url(concert)
